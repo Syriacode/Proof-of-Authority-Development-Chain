@@ -1,0 +1,42 @@
+1- Creating a Genesis Block:
+- From the Bash terminal and in the project folder: ./puppeth, network name: puppernet, Configure new genesis, Create new genesis from scratch, Clique (Proof of Authority),chain/network ID,  then we pause and complete after we finish step 2.
+- Both node's addresses to seal, both node's addresses to pre-fund, manage existing genisis, export genesis configurations and this will export puppernet.json.
+Pause here and move to step two.
+
+2- Creating two nodes with accounts:
+- From Bash terminal we will create two nodes and in the same project folder:
+./geth account new --datadir node1
+./geth account new --datadir node2
+- Initializing the two nodes:
+./geth init puppernet.json --datadir node1
+./geth init puppernet.json --datadir node2
+
+3- Bringing the Blockchain to life:
+- From Bash terminal and in the same project folder:
+./geth --datadir node1 --mine --minerthreads 1
+./geth --datadir node2 --port 30304 --rpc --bootnodes "
+enode://edf507e80dc7f421926f73b94accacd3e71c3460fea8e915c3ceab4931e06a343fa9d67a618957be1c5890d29ef308f1f982befef8baf5bcc20e93b45dac2d2c@127.0.0.1:30303" --ipcdisable
+- Unlock nodes:
+./geth --datadir node1 --unlock "0xA892CF7ADc8b80A15905E73C3567109AfFBcD934" --mine --rpc --allow-insecure-unlock
+./geth --datadir node2 --unlock "0xb3b952f8d0DB283C20333437e0793245FC15346f" --mine --port 30304 --bootnodes "enode://1ce2fe428323947832a7834dda3a07af2ce57d3b55bfa9610e37155841dc39d477264f5625f43f68fdcbfb62e0d04f9a6a9bc68058ec63db0e9391e0fcc7ebb6@127.0.0.1:30304" --ipcdisable --allow-insecure-unlock
+
+4- Transacting on our chain:
+- Get the private key: open MyCrypto, Private key, navigate to Node 1 keystore.
+Put Node2 address in the sent to address.
+- Change Network, Node Name: Puppernet, Network: Custom, Network Name: Puppernet, Currency: ETH, Chain ID: 333, URL: http://127.0.0.1:8545.
+- TX Hash: 0x81903aa4fb15a197c31a1aa456da5c2ba7e42c22619a1ddf77c6f773f732d9af
+
+
+Node1 address:
+0xA892CF7ADc8b80A15905E73C3567109AfFBcD934
+
+Node2 address:
+0xb3b952f8d0DB283C20333437e0793245FC15346f
+
+Node1 enode address:
+enode://edf507e80dc7f421926f73b94accacd3e71c3460fea8e915c3ceab4931e06a343fa9d67a618957be1c5890d29ef308f1f982befef8baf5bcc20e93b45dac2d2c@127.0.0.1:30303
+
+Node2 enode address:
+enode://1ce2fe428323947832a7834dda3a07af2ce57d3b55bfa9610e37155841dc39d477264f5625f43f68fdcbfb62e0d04f9a6a9bc68058ec63db0e9391e0fcc7ebb6@127.0.0.1:30304
+
+TX Hash: 0x81903aa4fb15a197c31a1aa456da5c2ba7e42c22619a1ddf77c6f773f732d9af
