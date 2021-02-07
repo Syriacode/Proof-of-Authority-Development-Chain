@@ -1,5 +1,5 @@
 1- Creating a Genesis Block:
-- From the Bash terminal and in the project folder: ./puppeth, network name: puppernet, Configure new genesis, Create new genesis from scratch, Clique (Proof of Authority),chain/network ID,  then we pause and complete after we finish step 2.
+- From the Bash terminal and in the project folder: ./puppeth, network name: puppernet, Configure new genesis, Create new genesis from scratch, Clique (Proof of Authority),chain/network ID= 333, no password, then we pause and complete after we finish step 2.
 - Both node's addresses to seal, both node's addresses to pre-fund, manage existing genisis, export genesis configurations and this will export puppernet.json.
 Pause here and move to step two.
 
